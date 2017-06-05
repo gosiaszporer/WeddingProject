@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MasProjekt.Wesele>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ilosc_gosci)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_wesela)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Konsultant_Osoba_Osoba_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Szablon_uroczystości_Szablon_uroczystości_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokalizacja_Lokalizacja_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ilosc_gosci)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_wesela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Konsultant_Osoba_Osoba_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Szablon_uroczystości_Szablon_uroczystości_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokalizacja_Lokalizacja_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Wesele_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Wesele_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Wesele_ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<center>
+    <br />
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create", "Umowas")';return false;">Przejdź do podpisania umowy</button>
+</center>

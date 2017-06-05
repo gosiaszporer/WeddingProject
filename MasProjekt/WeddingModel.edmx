@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WeddingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="Osoba_Osoba_ID" />
+          </Key>
+          <Property Name="Osoba_Osoba_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Nr_telefonu" Type="int" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Konsultant">
+          <Key>
+            <PropertyRef Name="Osoba_Osoba_ID" />
+          </Key>
+          <Property Name="Osoba_Osoba_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Data_zatrudnienia" Type="date" Nullable="false" />
+          <Property Name="Prowizja" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lokalizacja">
+          <Key>
+            <PropertyRef Name="Lokalizacja_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Powierzchnia" Type="int" Nullable="false" />
+          <Property Name="Lokalizacja_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oferta_catering">
+          <Key>
+            <PropertyRef Name="Oferta_catering_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Ilosc_dan" Type="int" Nullable="false" />
+          <Property Name="Oferta_catering_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oferta_cukiernik">
+          <Key>
+            <PropertyRef Name="Oferta_cukiernik_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Dominujace_smaki" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Oferta_cukiernik_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oferta_kwiaciarnia">
+          <Key>
+            <PropertyRef Name="Oferta_kwiaciarnia_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Dominujacy_kwiat" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Oferta_kwiaciarnia_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Osoba">
+          <Key>
+            <PropertyRef Name="Osoba_ID" />
+          </Key>
+          <Property Name="Osoba_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Podwykonawca">
+          <Key>
+            <PropertyRef Name="Podwykonawca_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nr_telefonu" Type="int" Nullable="false" />
+          <Property Name="Podwykonawca_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Status_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Status_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Szablon_uroczystości">
+          <Key>
+            <PropertyRef Name="Szablon_uroczystości_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Szablon_uroczystości_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Oferta_catering_Oferta_catering_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Oferta_cukiernik_Oferta_cukiernik_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="Umowa_ID" />
+          </Key>
+          <Property Name="Data_podpisania" Type="date" Nullable="false" />
+          <Property Name="Cena_calkowita" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Status_Status_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Wesele_Wesele_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Klient_Osoba_Osoba_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Umowa_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wesele">
+          <Key>
+            <PropertyRef Name="Wesele_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Ilosc_gosci" Type="int" Nullable="false" />
+          <Property Name="Data_wesela" Type="date" Nullable="false" />
+          <Property Name="Wesele_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Konsultant_Osoba_Osoba_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Szablon_uroczystości_Szablon_uroczystości_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Lokalizacja_Lokalizacja_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="Klient_Osoba_FK">
+          <End Role="Osoba" Type="Self.Osoba" Multiplicity="1" />
+          <End Role="Klient" Type="Self.Klient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Osoba">
+              <PropertyRef Name="Osoba_ID" />
+            </Principal>
+            <Dependent Role="Klient">
+              <PropertyRef Name="Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Konsultant_Osoba_FK">
+          <End Role="Osoba" Type="Self.Osoba" Multiplicity="1" />
+          <End Role="Konsultant" Type="Self.Konsultant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Osoba">
+              <PropertyRef Name="Osoba_ID" />
+            </Principal>
+            <Dependent Role="Konsultant">
+              <PropertyRef Name="Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_catering_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_catering" Type="Self.Oferta_catering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_catering">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_cukiernik_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_cukiernik" Type="Self.Oferta_cukiernik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_cukiernik">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_kwiaciarnia_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_kwiaciarnia" Type="Self.Oferta_kwiaciarnia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_kwiaciarnia">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_catering_FK">
+          <End Role="Oferta_catering" Type="Self.Oferta_catering" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_catering">
+              <PropertyRef Name="Oferta_catering_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_catering_Oferta_catering_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_cukiernik_FK">
+          <End Role="Oferta_cukiernik" Type="Self.Oferta_cukiernik" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_cukiernik">
+              <PropertyRef Name="Oferta_cukiernik_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_cukiernik_Oferta_cukiernik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_kwiaciarnia_FK">
+          <End Role="Oferta_kwiaciarnia" Type="Self.Oferta_kwiaciarnia" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_kwiaciarnia">
+              <PropertyRef Name="Oferta_kwiaciarnia_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Umowa_Klient_FK">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="Osoba_Osoba_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Klient_Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Umowa_Status_FK">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Status_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Umowa_Wesele_FK">
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wesele">
+              <PropertyRef Name="Wesele_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Wesele_Wesele_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Konsultant_FK">
+          <End Role="Konsultant" Type="Self.Konsultant" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Konsultant">
+              <PropertyRef Name="Osoba_Osoba_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Konsultant_Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Lokalizacja_FK">
+          <End Role="Lokalizacja" Type="Self.Lokalizacja" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lokalizacja">
+              <PropertyRef Name="Lokalizacja_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Lokalizacja_Lokalizacja_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Szablon_uroczystości_FK">
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Szablon_uroczystości">
+              <PropertyRef Name="Szablon_uroczystości_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Szablon_uroczystości_Szablon_uroczystości_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WeddingModelStoreContainer">
+          <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Konsultant" EntityType="Self.Konsultant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lokalizacja" EntityType="Self.Lokalizacja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oferta_catering" EntityType="Self.Oferta_catering" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oferta_cukiernik" EntityType="Self.Oferta_cukiernik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oferta_kwiaciarnia" EntityType="Self.Oferta_kwiaciarnia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Osoba" EntityType="Self.Osoba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Podwykonawca" EntityType="Self.Podwykonawca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Szablon_uroczystości" EntityType="Self.Szablon_uroczystości" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Umowa" EntityType="Self.Umowa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wesele" EntityType="Self.Wesele" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Klient_Osoba_FK" Association="Self.Klient_Osoba_FK">
+            <End Role="Osoba" EntitySet="Osoba" />
+            <End Role="Klient" EntitySet="Klient" />
+          </AssociationSet>
+          <AssociationSet Name="Konsultant_Osoba_FK" Association="Self.Konsultant_Osoba_FK">
+            <End Role="Osoba" EntitySet="Osoba" />
+            <End Role="Konsultant" EntitySet="Konsultant" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_catering_Podwykonawca_FK" Association="Self.Oferta_catering_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawca" />
+            <End Role="Oferta_catering" EntitySet="Oferta_catering" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_cukiernik_Podwykonawca_FK" Association="Self.Oferta_cukiernik_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawca" />
+            <End Role="Oferta_cukiernik" EntitySet="Oferta_cukiernik" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_kwiaciarnia_Podwykonawca_FK" Association="Self.Oferta_kwiaciarnia_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawca" />
+            <End Role="Oferta_kwiaciarnia" EntitySet="Oferta_kwiaciarnia" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_catering_FK" Association="Self.Szablon_uroczystości_Oferta_catering_FK">
+            <End Role="Oferta_catering" EntitySet="Oferta_catering" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_cukiernik_FK" Association="Self.Szablon_uroczystości_Oferta_cukiernik_FK">
+            <End Role="Oferta_cukiernik" EntitySet="Oferta_cukiernik" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_kwiaciarnia_FK" Association="Self.Szablon_uroczystości_Oferta_kwiaciarnia_FK">
+            <End Role="Oferta_kwiaciarnia" EntitySet="Oferta_kwiaciarnia" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Umowa_Klient_FK" Association="Self.Umowa_Klient_FK">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Umowa" EntitySet="Umowa" />
+          </AssociationSet>
+          <AssociationSet Name="Umowa_Status_FK" Association="Self.Umowa_Status_FK">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Umowa" EntitySet="Umowa" />
+          </AssociationSet>
+          <AssociationSet Name="Umowa_Wesele_FK" Association="Self.Umowa_Wesele_FK">
+            <End Role="Wesele" EntitySet="Wesele" />
+            <End Role="Umowa" EntitySet="Umowa" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Konsultant_FK" Association="Self.Wesele_Konsultant_FK">
+            <End Role="Konsultant" EntitySet="Konsultant" />
+            <End Role="Wesele" EntitySet="Wesele" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Lokalizacja_FK" Association="Self.Wesele_Lokalizacja_FK">
+            <End Role="Lokalizacja" EntitySet="Lokalizacja" />
+            <End Role="Wesele" EntitySet="Wesele" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Szablon_uroczystości_FK" Association="Self.Wesele_Szablon_uroczystości_FK">
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+            <End Role="Wesele" EntitySet="Wesele" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WeddingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Klient" BaseType="WeddingModel.Osoba">
+          <Property Name="Nr_telefonu" Type="Int32" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Umowas" Relationship="Self.Umowa_Klient_FK" FromRole="Klient" ToRole="Umowa" />
+        </EntityType>
+        <EntityType Name="Konsultant" BaseType="WeddingModel.Osoba">
+          <Property Name="Data_zatrudnienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Prowizja" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Weseles" Relationship="Self.Wesele_Konsultant_FK" FromRole="Konsultant" ToRole="Wesele" />
+        </EntityType>
+        <EntityType Name="Lokalizacja">
+          <Key>
+            <PropertyRef Name="Lokalizacja_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Powierzchnia" Type="Int32" Nullable="false" />
+          <Property Name="Lokalizacja_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Weseles" Relationship="Self.Wesele_Lokalizacja_FK" FromRole="Lokalizacja" ToRole="Wesele" />
+        </EntityType>
+        <EntityType Name="Oferta_catering">
+          <Key>
+            <PropertyRef Name="Oferta_catering_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Ilosc_dan" Type="Int32" Nullable="false" />
+          <Property Name="Oferta_catering_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Podwykonawca" Relationship="Self.Oferta_catering_Podwykonawca_FK" FromRole="Oferta_catering" ToRole="Podwykonawca" />
+          <NavigationProperty Name="Szablon_uroczystości" Relationship="Self.Szablon_uroczystości_Oferta_catering_FK" FromRole="Oferta_catering" ToRole="Szablon_uroczystości" />
+        </EntityType>
+        <EntityType Name="Oferta_cukiernik">
+          <Key>
+            <PropertyRef Name="Oferta_cukiernik_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dominujace_smaki" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Oferta_cukiernik_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Podwykonawca" Relationship="Self.Oferta_cukiernik_Podwykonawca_FK" FromRole="Oferta_cukiernik" ToRole="Podwykonawca" />
+          <NavigationProperty Name="Szablon_uroczystości" Relationship="Self.Szablon_uroczystości_Oferta_cukiernik_FK" FromRole="Oferta_cukiernik" ToRole="Szablon_uroczystości" />
+        </EntityType>
+        <EntityType Name="Oferta_kwiaciarnia">
+          <Key>
+            <PropertyRef Name="Oferta_kwiaciarnia_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dominujacy_kwiat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Oferta_kwiaciarnia_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Podwykonawca_Podwykonawca_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Podwykonawca" Relationship="Self.Oferta_kwiaciarnia_Podwykonawca_FK" FromRole="Oferta_kwiaciarnia" ToRole="Podwykonawca" />
+          <NavigationProperty Name="Szablon_uroczystości" Relationship="Self.Szablon_uroczystości_Oferta_kwiaciarnia_FK" FromRole="Oferta_kwiaciarnia" ToRole="Szablon_uroczystości" />
+        </EntityType>
+        <EntityType Name="Osoba">
+          <Key>
+            <PropertyRef Name="Osoba_ID" />
+          </Key>
+          <Property Name="Osoba_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Podwykonawca">
+          <Key>
+            <PropertyRef Name="Podwykonawca_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nr_telefonu" Type="Int32" Nullable="false" />
+          <Property Name="Podwykonawca_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Oferta_catering" Relationship="Self.Oferta_catering_Podwykonawca_FK" FromRole="Podwykonawca" ToRole="Oferta_catering" />
+          <NavigationProperty Name="Oferta_cukiernik" Relationship="Self.Oferta_cukiernik_Podwykonawca_FK" FromRole="Podwykonawca" ToRole="Oferta_cukiernik" />
+          <NavigationProperty Name="Oferta_kwiaciarnia" Relationship="Self.Oferta_kwiaciarnia_Podwykonawca_FK" FromRole="Podwykonawca" ToRole="Oferta_kwiaciarnia" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Status_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Umowas" Relationship="Self.Umowa_Status_FK" FromRole="Status" ToRole="Umowa" />
+        </EntityType>
+        <EntityType Name="Szablon_uroczystości">
+          <Key>
+            <PropertyRef Name="Szablon_uroczystości_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Szablon_uroczystości_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Oferta_catering_Oferta_catering_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Oferta_cukiernik_Oferta_cukiernik_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Oferta_catering" Relationship="Self.Szablon_uroczystości_Oferta_catering_FK" FromRole="Szablon_uroczystości" ToRole="Oferta_catering" />
+          <NavigationProperty Name="Oferta_cukiernik" Relationship="Self.Szablon_uroczystości_Oferta_cukiernik_FK" FromRole="Szablon_uroczystości" ToRole="Oferta_cukiernik" />
+          <NavigationProperty Name="Oferta_kwiaciarnia" Relationship="Self.Szablon_uroczystości_Oferta_kwiaciarnia_FK" FromRole="Szablon_uroczystości" ToRole="Oferta_kwiaciarnia" />
+          <NavigationProperty Name="Weseles" Relationship="Self.Wesele_Szablon_uroczystości_FK" FromRole="Szablon_uroczystości" ToRole="Wesele" />
+        </EntityType>
+        <EntityType Name="Wesele">
+          <Key>
+            <PropertyRef Name="Wesele_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ilosc_gosci" Type="Int32" Nullable="false" />
+          <Property Name="Data_wesela" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Wesele_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Konsultant_Osoba_Osoba_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Szablon_uroczystości_Szablon_uroczystości_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Lokalizacja_Lokalizacja_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Konsultant" Relationship="Self.Wesele_Konsultant_FK" FromRole="Wesele" ToRole="Konsultant" />
+          <NavigationProperty Name="Lokalizacja" Relationship="Self.Wesele_Lokalizacja_FK" FromRole="Wesele" ToRole="Lokalizacja" />
+          <NavigationProperty Name="Szablon_uroczystości" Relationship="Self.Wesele_Szablon_uroczystości_FK" FromRole="Wesele" ToRole="Szablon_uroczystości" />
+          <NavigationProperty Name="Umowas" Relationship="Self.Umowa_Wesele_FK" FromRole="Wesele" ToRole="Umowa" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="Umowa_ID1" />
+          </Key>
+          <Property Name="Data_podpisania" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cena_calkowita" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Status_Status_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Wesele_Wesele_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Klient_Osoba_Osoba_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Klient" Relationship="Self.Umowa_Klient_FK" FromRole="Umowa" ToRole="Klient" />
+          <NavigationProperty Name="Status" Relationship="Self.Umowa_Status_FK" FromRole="Umowa" ToRole="Status" />
+          <NavigationProperty Name="Wesele" Relationship="Self.Umowa_Wesele_FK" FromRole="Umowa" ToRole="Wesele" />
+          <Property Name="Umowa_ID1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="Umowa_Klient_FK">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="Osoba_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Klient_Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Konsultant_FK">
+          <End Role="Konsultant" Type="Self.Konsultant" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Konsultant">
+              <PropertyRef Name="Osoba_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Konsultant_Osoba_Osoba_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Lokalizacja_FK">
+          <End Role="Lokalizacja" Type="Self.Lokalizacja" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lokalizacja">
+              <PropertyRef Name="Lokalizacja_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Lokalizacja_Lokalizacja_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_catering_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_catering" Type="Self.Oferta_catering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_catering">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_catering_FK">
+          <End Role="Oferta_catering" Type="Self.Oferta_catering" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_catering">
+              <PropertyRef Name="Oferta_catering_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_catering_Oferta_catering_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_cukiernik_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_cukiernik" Type="Self.Oferta_cukiernik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_cukiernik">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_cukiernik_FK">
+          <End Role="Oferta_cukiernik" Type="Self.Oferta_cukiernik" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_cukiernik">
+              <PropertyRef Name="Oferta_cukiernik_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_cukiernik_Oferta_cukiernik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Oferta_kwiaciarnia_Podwykonawca_FK">
+          <End Role="Podwykonawca" Type="Self.Podwykonawca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oferta_kwiaciarnia" Type="Self.Oferta_kwiaciarnia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podwykonawca">
+              <PropertyRef Name="Podwykonawca_ID" />
+            </Principal>
+            <Dependent Role="Oferta_kwiaciarnia">
+              <PropertyRef Name="Podwykonawca_Podwykonawca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szablon_uroczystości_Oferta_kwiaciarnia_FK">
+          <End Role="Oferta_kwiaciarnia" Type="Self.Oferta_kwiaciarnia" Multiplicity="1" />
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta_kwiaciarnia">
+              <PropertyRef Name="Oferta_kwiaciarnia_ID" />
+            </Principal>
+            <Dependent Role="Szablon_uroczystości">
+              <PropertyRef Name="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Umowa_Status_FK">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Status_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wesele_Szablon_uroczystości_FK">
+          <End Role="Szablon_uroczystości" Type="Self.Szablon_uroczystości" Multiplicity="1" />
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Szablon_uroczystości">
+              <PropertyRef Name="Szablon_uroczystości_ID" />
+            </Principal>
+            <Dependent Role="Wesele">
+              <PropertyRef Name="Szablon_uroczystości_Szablon_uroczystości_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Umowa_Wesele_FK">
+          <End Role="Wesele" Type="Self.Wesele" Multiplicity="1" />
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wesele">
+              <PropertyRef Name="Wesele_ID" />
+            </Principal>
+            <Dependent Role="Umowa">
+              <PropertyRef Name="Wesele_Wesele_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MASEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lokalizacjas" EntityType="Self.Lokalizacja" />
+          <EntitySet Name="Oferta_catering" EntityType="Self.Oferta_catering" />
+          <EntitySet Name="Oferta_cukiernik" EntityType="Self.Oferta_cukiernik" />
+          <EntitySet Name="Oferta_kwiaciarnia" EntityType="Self.Oferta_kwiaciarnia" />
+          <EntitySet Name="Osobas" EntityType="Self.Osoba" />
+          <EntitySet Name="Podwykonawcas" EntityType="Self.Podwykonawca" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Szablon_uroczystości" EntityType="Self.Szablon_uroczystości" />
+          <EntitySet Name="Weseles" EntityType="Self.Wesele" />
+          <EntitySet Name="Umowas" EntityType="Self.Umowa" />
+          <AssociationSet Name="Umowa_Klient_FK" Association="Self.Umowa_Klient_FK">
+            <End Role="Klient" EntitySet="Osobas" />
+            <End Role="Umowa" EntitySet="Umowas" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Konsultant_FK" Association="Self.Wesele_Konsultant_FK">
+            <End Role="Konsultant" EntitySet="Osobas" />
+            <End Role="Wesele" EntitySet="Weseles" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Lokalizacja_FK" Association="Self.Wesele_Lokalizacja_FK">
+            <End Role="Lokalizacja" EntitySet="Lokalizacjas" />
+            <End Role="Wesele" EntitySet="Weseles" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_catering_Podwykonawca_FK" Association="Self.Oferta_catering_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawcas" />
+            <End Role="Oferta_catering" EntitySet="Oferta_catering" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_catering_FK" Association="Self.Szablon_uroczystości_Oferta_catering_FK">
+            <End Role="Oferta_catering" EntitySet="Oferta_catering" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_cukiernik_Podwykonawca_FK" Association="Self.Oferta_cukiernik_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawcas" />
+            <End Role="Oferta_cukiernik" EntitySet="Oferta_cukiernik" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_cukiernik_FK" Association="Self.Szablon_uroczystości_Oferta_cukiernik_FK">
+            <End Role="Oferta_cukiernik" EntitySet="Oferta_cukiernik" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Oferta_kwiaciarnia_Podwykonawca_FK" Association="Self.Oferta_kwiaciarnia_Podwykonawca_FK">
+            <End Role="Podwykonawca" EntitySet="Podwykonawcas" />
+            <End Role="Oferta_kwiaciarnia" EntitySet="Oferta_kwiaciarnia" />
+          </AssociationSet>
+          <AssociationSet Name="Szablon_uroczystości_Oferta_kwiaciarnia_FK" Association="Self.Szablon_uroczystości_Oferta_kwiaciarnia_FK">
+            <End Role="Oferta_kwiaciarnia" EntitySet="Oferta_kwiaciarnia" />
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+          </AssociationSet>
+          <AssociationSet Name="Umowa_Status_FK" Association="Self.Umowa_Status_FK">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Umowa" EntitySet="Umowas" />
+          </AssociationSet>
+          <AssociationSet Name="Wesele_Szablon_uroczystości_FK" Association="Self.Wesele_Szablon_uroczystości_FK">
+            <End Role="Szablon_uroczystości" EntitySet="Szablon_uroczystości" />
+            <End Role="Wesele" EntitySet="Weseles" />
+          </AssociationSet>
+          <AssociationSet Name="Umowa_Wesele_FK" Association="Self.Umowa_Wesele_FK">
+            <End Role="Wesele" EntitySet="Weseles" />
+            <End Role="Umowa" EntitySet="Umowas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WeddingModelStoreContainer" CdmEntityContainer="MASEntities">
+          <EntitySetMapping Name="Lokalizacjas">
+            <EntityTypeMapping TypeName="WeddingModel.Lokalizacja">
+              <MappingFragment StoreEntitySet="Lokalizacja">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Powierzchnia" ColumnName="Powierzchnia" />
+                <ScalarProperty Name="Lokalizacja_ID" ColumnName="Lokalizacja_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oferta_catering">
+            <EntityTypeMapping TypeName="WeddingModel.Oferta_catering">
+              <MappingFragment StoreEntitySet="Oferta_catering">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Ilosc_dan" ColumnName="Ilosc_dan" />
+                <ScalarProperty Name="Oferta_catering_ID" ColumnName="Oferta_catering_ID" />
+                <ScalarProperty Name="Podwykonawca_Podwykonawca_ID" ColumnName="Podwykonawca_Podwykonawca_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oferta_cukiernik">
+            <EntityTypeMapping TypeName="WeddingModel.Oferta_cukiernik">
+              <MappingFragment StoreEntitySet="Oferta_cukiernik">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Dominujace_smaki" ColumnName="Dominujace_smaki" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Oferta_cukiernik_ID" ColumnName="Oferta_cukiernik_ID" />
+                <ScalarProperty Name="Podwykonawca_Podwykonawca_ID" ColumnName="Podwykonawca_Podwykonawca_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oferta_kwiaciarnia">
+            <EntityTypeMapping TypeName="WeddingModel.Oferta_kwiaciarnia">
+              <MappingFragment StoreEntitySet="Oferta_kwiaciarnia">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Dominujacy_kwiat" ColumnName="Dominujacy_kwiat" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Oferta_kwiaciarnia_ID" ColumnName="Oferta_kwiaciarnia_ID" />
+                <ScalarProperty Name="Podwykonawca_Podwykonawca_ID" ColumnName="Podwykonawca_Podwykonawca_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Osobas">
+            <EntityTypeMapping TypeName="IsTypeOf(WeddingModel.Osoba)">
+              <MappingFragment StoreEntitySet="Osoba">
+                <ScalarProperty Name="Osoba_ID" ColumnName="Osoba_ID" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WeddingModel.Konsultant)">
+              <MappingFragment StoreEntitySet="Konsultant">
+                <ScalarProperty Name="Osoba_ID" ColumnName="Osoba_Osoba_ID" />
+                <ScalarProperty Name="Prowizja" ColumnName="Prowizja" />
+                <ScalarProperty Name="Data_zatrudnienia" ColumnName="Data_zatrudnienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WeddingModel.Klient)">
+              <MappingFragment StoreEntitySet="Klient">
+                <ScalarProperty Name="Osoba_ID" ColumnName="Osoba_Osoba_ID" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Nr_telefonu" ColumnName="Nr_telefonu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Podwykonawcas">
+            <EntityTypeMapping TypeName="WeddingModel.Podwykonawca">
+              <MappingFragment StoreEntitySet="Podwykonawca">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Nr_telefonu" ColumnName="Nr_telefonu" />
+                <ScalarProperty Name="Podwykonawca_ID" ColumnName="Podwykonawca_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="WeddingModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Szablon_uroczystości">
+            <EntityTypeMapping TypeName="WeddingModel.Szablon_uroczystości">
+              <MappingFragment StoreEntitySet="Szablon_uroczystości">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Szablon_uroczystości_ID" ColumnName="Szablon_uroczystości_ID" />
+                <ScalarProperty Name="Oferta_catering_Oferta_catering_ID" ColumnName="Oferta_catering_Oferta_catering_ID" />
+                <ScalarProperty Name="Oferta_cukiernik_Oferta_cukiernik_ID" ColumnName="Oferta_cukiernik_Oferta_cukiernik_ID" />
+                <ScalarProperty Name="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" ColumnName="Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weseles">
+            <EntityTypeMapping TypeName="WeddingModel.Wesele">
+              <MappingFragment StoreEntitySet="Wesele">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Ilosc_gosci" ColumnName="Ilosc_gosci" />
+                <ScalarProperty Name="Data_wesela" ColumnName="Data_wesela" />
+                <ScalarProperty Name="Wesele_ID" ColumnName="Wesele_ID" />
+                <ScalarProperty Name="Konsultant_Osoba_Osoba_ID" ColumnName="Konsultant_Osoba_Osoba_ID" />
+                <ScalarProperty Name="Szablon_uroczystości_Szablon_uroczystości_ID" ColumnName="Szablon_uroczystości_Szablon_uroczystości_ID" />
+                <ScalarProperty Name="Lokalizacja_Lokalizacja_ID" ColumnName="Lokalizacja_Lokalizacja_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umowas">
+            <EntityTypeMapping TypeName="WeddingModel.Umowa">
+              <MappingFragment StoreEntitySet="Umowa">
+                <ScalarProperty Name="Umowa_ID1" ColumnName="Umowa_ID" />
+                <ScalarProperty Name="Data_podpisania" ColumnName="Data_podpisania" />
+                <ScalarProperty Name="Cena_calkowita" ColumnName="Cena_calkowita" />
+                <ScalarProperty Name="Status_Status_ID" ColumnName="Status_Status_ID" />
+                <ScalarProperty Name="Wesele_Wesele_ID" ColumnName="Wesele_Wesele_ID" />
+                <ScalarProperty Name="Klient_Osoba_Osoba_ID" ColumnName="Klient_Osoba_Osoba_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,66 @@
+﻿@model MasProjekt.Wesele
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Wesele</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilosc_gosci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilosc_gosci)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_wesela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_wesela)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Konsultant_Osoba_Osoba_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Konsultant_Osoba_Osoba_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Szablon_uroczystości_Szablon_uroczystości_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Szablon_uroczystości_Szablon_uroczystości_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lokalizacja_Lokalizacja_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lokalizacja_Lokalizacja_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Wesele_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2dcf5aa60f264e6ba72bf6904c1d77ef" Name="Diagram1">
+        <EntityTypeShape EntityType="WeddingModel.Klient" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Konsultant" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Lokalizacja" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Oferta_catering" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Oferta_cukiernik" Width="1.875" PointX="2.875" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Oferta_kwiaciarnia" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Osoba" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Podwykonawca" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Status" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Szablon_uroczystości" Width="3.25" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Wesele" Width="3.25" PointX="11.125" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingModel.Umowa" Width="2.375" PointX="15.125" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="WeddingModel.Umowa_Klient_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Wesele_Konsultant_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Wesele_Lokalizacja_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Oferta_catering_Podwykonawca_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Szablon_uroczystości_Oferta_catering_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Oferta_cukiernik_Podwykonawca_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Szablon_uroczystości_Oferta_cukiernik_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Oferta_kwiaciarnia_Podwykonawca_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Szablon_uroczystości_Oferta_kwiaciarnia_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Umowa_Status_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Wesele_Szablon_uroczystości_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingModel.Umowa_Wesele_FK" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="WeddingModel.Konsultant" />
+        <InheritanceConnector EntityType="WeddingModel.Klient" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

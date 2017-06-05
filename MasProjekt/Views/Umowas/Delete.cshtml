@@ -1,0 +1,64 @@
+﻿@model MasProjekt.Umowa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Umowa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_podpisania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_podpisania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena_calkowita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena_calkowita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status_Status_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status_Status_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wesele_Wesele_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wesele_Wesele_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Klient_Osoba_Osoba_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klient_Osoba_Osoba_ID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

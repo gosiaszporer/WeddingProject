@@ -1,0 +1,58 @@
+﻿@model MasProjekt.Szablon_uroczystości
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Szablon_uroczystości</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_catering.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_catering.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_cukiernik.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_cukiernik.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_kwiaciarnia.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_kwiaciarnia.Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Szablon_uroczystości_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

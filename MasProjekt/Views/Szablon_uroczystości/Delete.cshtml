@@ -1,0 +1,64 @@
+﻿@model MasProjekt.Szablon_uroczystości
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Szablon_uroczystości</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_catering.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_catering.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_cukiernik.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_cukiernik.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta_kwiaciarnia.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta_kwiaciarnia.Nazwa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

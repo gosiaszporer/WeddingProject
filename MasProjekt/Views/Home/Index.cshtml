@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style>
+        .comp_info{
+            padding-top: 30px;
+            font-family: 'Pacifico';
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="comp_info">Something Blue Event Planning</div>
+
+<center>
+    <br />
+    <h3>Razem zaplanujemy wymarzone wesele!</h3>
+    <br />
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Index", "Szablon_uroczystości")';return false;">Przeglądaj szablony uroczystości</button>
+</center>
