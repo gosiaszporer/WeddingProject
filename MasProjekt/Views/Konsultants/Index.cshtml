@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MasProjekt.Osoba>
+﻿@model IEnumerable<MasProjekt.Konsultant>
 
 @{
     ViewBag.Title = "Index";
@@ -18,10 +18,10 @@
             @Html.DisplayNameFor(model => model.Nazwisko)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Konsultant.Data_zatrudnienia)
+            @Html.DisplayNameFor(model => model.Data_zatrudnienia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Konsultant.Prowizja)
+            @Html.DisplayNameFor(model => model.Prowizja)
         </th>
         <th></th>
     </tr>
@@ -35,10 +35,10 @@
             @Html.DisplayFor(modelItem => item.Nazwisko)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Konsultant.Data_zatrudnienia)
+            @Html.DisplayFor(modelItem => item.Data_zatrudnienia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Konsultant.Prowizja)
+            @Html.DisplayFor(modelItem => item.Prowizja)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Osoba_ID }) |

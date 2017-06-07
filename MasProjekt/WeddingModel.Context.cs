@@ -30,6 +30,8 @@ namespace MasProjekt
         public virtual DbSet<Oferta_cukiernik> Oferta_cukiernik { get; set; }
         public virtual DbSet<Oferta_kwiaciarnia> Oferta_kwiaciarnia { get; set; }
         public virtual DbSet<Osoba> Osobas { get; set; }
+        public virtual DbSet<Konsultant> Konsultants { get; set; }
+        public virtual DbSet<Klient> Klients { get; set; }
         public virtual DbSet<Podwykonawca> Podwykonawcas { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Szablon_uroczystości> Szablon_uroczystości { get; set; }

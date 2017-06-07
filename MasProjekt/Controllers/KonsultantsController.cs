@@ -17,7 +17,7 @@ namespace MasProjekt.Controllers
         // GET: Konsultants
         public ActionResult Index()
         {
-            return View(db.Osobas.ToList());
+            return View(db.Konsultants.ToList());
         }
 
         // GET: Konsultants/Details/5
@@ -27,7 +27,7 @@ namespace MasProjekt.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Konsultant konsultant = (Konsultant)db.Osobas.Find(id);
+            Osoba konsultant = (Konsultant) db.Osobas.Find(id);
             if (konsultant == null)
             {
                 return HttpNotFound();
@@ -65,7 +65,7 @@ namespace MasProjekt.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Konsultant konsultant = (Konsultant)db.Osobas.Find(id);
+            Osoba konsultant = (Konsultant)db.Osobas.Find(id);
             if (konsultant == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace MasProjekt.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Konsultant konsultant = (Konsultant)db.Osobas.Find(id);
+            Osoba konsultant = (Konsultant)db.Osobas.Find(id);
             if (konsultant == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace MasProjekt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            Konsultant konsultant = (Konsultant)db.Osobas.Find(id);
+            Osoba konsultant = (Konsultant)db.Osobas.Find(id);
             db.Osobas.Remove(konsultant);
             db.SaveChanges();
             return RedirectToAction("Index");

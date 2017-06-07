@@ -20,7 +20,7 @@ namespace MasProjekt
             this.Weseles = new HashSet<Wesele>();
         }
     
-        public System.DateTime Data_zatrudnienia { get; set; }
+        public DateTime Data_zatrudnienia { get; set; }
         public int Prowizja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
