@@ -14,6 +14,21 @@ namespace MasProjekt.Controllers
     {
         private MASEntities db = new MASEntities();
 
+        private static int globalCount;
+
+        public static int GlobalCount
+        {
+            get
+            {
+                return globalCount;
+            }
+
+            set
+            {
+                globalCount = value;
+            }
+        }
+
         // GET: Umowas
         public ActionResult Index()
         {
@@ -28,6 +43,8 @@ namespace MasProjekt.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Umowa umowa = db.Umowas.Find(id);
+            umowa.Cena_calkowita = (umowa.Wesele.Szablon_uroczystości.Cena)*umowa.Wesele.Ilosc_gosci * (1+ ((decimal)umowa.Wesele.Konsultant.Prowizja / 100));
+            db.SaveChanges();
             if (umowa == null)
             {
                 return HttpNotFound();
@@ -40,7 +57,7 @@ namespace MasProjekt.Controllers
         {
             ViewBag.Status_Status_ID = new SelectList(db.Status, "Status_ID", "Nazwa");
             ViewBag.Wesele_Wesele_ID = new SelectList(db.Weseles, "Wesele_ID", "Nazwa");
-            ViewBag.Klient_Osoba_Osoba_ID = new SelectList(db.Osobas, "Osoba_ID", "Nazwisko");
+            ViewBag.Klient_Osoba_Osoba_ID = new SelectList(db.Klients, "Osoba_ID", "Nazwisko");
 
             return View();
         }
@@ -52,6 +69,9 @@ namespace MasProjekt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Umowa_ID1,Data_podpisania,Cena_calkowita,Status_Status_ID,Wesele_Wesele_ID,Klient_Osoba_Osoba_ID")] Umowa umowa)
         {
+            Random ran = new Random();
+            umowa.Umowa_ID1 = ++globalCount + ran.Next(100, 500);
+
             if (ModelState.IsValid)
             {
                 db.Umowas.Add(umowa);

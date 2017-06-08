@@ -14,6 +14,14 @@ namespace MasProjekt.Controllers
     {
         private MASEntities db = new MASEntities();
 
+        public decimal wyliczCene(Szablon_uroczystości szablon_uroczystości)
+        {
+            //Szablon_uroczystości szablon_uroczystości = new Szablon_uroczystości();
+            szablon_uroczystości.Cena = szablon_uroczystości.Oferta_catering.Cena + szablon_uroczystości.Oferta_cukiernik.Cena + szablon_uroczystości.Oferta_kwiaciarnia.Cena;
+
+            return szablon_uroczystości.Cena;
+        }
+
         // GET: Szablon_uroczystości
         public ActionResult Index()
         {
@@ -29,6 +37,10 @@ namespace MasProjekt.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Szablon_uroczystości szablon_uroczystości = db.Szablon_uroczystości.Find(id);
+
+            szablon_uroczystości.Cena = szablon_uroczystości.Oferta_catering.Cena + szablon_uroczystości.Oferta_cukiernik.Cena + szablon_uroczystości.Oferta_kwiaciarnia.Cena;
+            db.SaveChanges();
+
             if (szablon_uroczystości == null)
             {
                 return HttpNotFound();
@@ -52,9 +64,14 @@ namespace MasProjekt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Nazwa,Cena,Szablon_uroczystości_ID,Oferta_catering_Oferta_catering_ID,Oferta_cukiernik_Oferta_cukiernik_ID,Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID")] Szablon_uroczystości szablon_uroczystości)
         {
+            
+
             if (ModelState.IsValid)
             {
+                //szablon_uroczystości.Cena = szablon_uroczystości.Oferta_catering.Cena + szablon_uroczystości.Oferta_cukiernik.Cena + szablon_uroczystości.Oferta_kwiaciarnia.Cena;
                 db.Szablon_uroczystości.Add(szablon_uroczystości);
+                db.SaveChanges();
+                //+ szablon_uroczystości.Oferta_cukiernik.Cena + szablon_uroczystości.Oferta_kwiaciarnia.Cena;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,6 +79,7 @@ namespace MasProjekt.Controllers
             ViewBag.Oferta_catering_Oferta_catering_ID = new SelectList(db.Oferta_catering, "Oferta_catering_ID", "Nazwa", szablon_uroczystości.Oferta_catering_Oferta_catering_ID);
             ViewBag.Oferta_cukiernik_Oferta_cukiernik_ID = new SelectList(db.Oferta_cukiernik, "Oferta_cukiernik_ID", "Nazwa", szablon_uroczystości.Oferta_cukiernik_Oferta_cukiernik_ID);
             ViewBag.Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID = new SelectList(db.Oferta_kwiaciarnia, "Oferta_kwiaciarnia_ID", "Nazwa", szablon_uroczystości.Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID);
+            
             return View(szablon_uroczystości);
         }
 
@@ -73,6 +91,7 @@ namespace MasProjekt.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Szablon_uroczystości szablon_uroczystości = db.Szablon_uroczystości.Find(id);
+
             if (szablon_uroczystości == null)
             {
                 return HttpNotFound();

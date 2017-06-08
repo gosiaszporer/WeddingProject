@@ -6,6 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
     <style>
         .logo {
             height:45px;
@@ -32,9 +36,27 @@
                     <li>@Html.ActionLink("Wesela", "Index", "Weseles")</li>
                     <li>@Html.ActionLink("Umowy", "Index", "Umowas")</li>
                     <li>@Html.ActionLink("Lokalizacje", "Index", "Lokalizacjas")</li>
-                    <li>@Html.ActionLink("Catering", "Index", "Oferta_catering")</li>
-                    <li>@Html.ActionLink("Cukiernie", "Index", "Oferta_cukiernik")</li>
-                    <li>@Html.ActionLink("Kwiaciarnie", "Index", "Oferta_kwiaciarnia")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Oferta
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Catering", "Index", "Oferta_catering")</li>
+                            <li>@Html.ActionLink("Cukiernie", "Index", "Oferta_cukiernik")</li>
+                            <li>@Html.ActionLink("Kwiaciarnie", "Index", "Oferta_kwiaciarnia")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Osoby
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Klienci", "Index", "Klients")</li>
+                            <li>@Html.ActionLink("Konsultanci", "Index", "Konsultants")</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -42,8 +64,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="footer navbar-fixed-bottom">
+           <center><p>&copy; @DateTime.Now.Year - Something Blue Event Planning</p></center> 
         </footer>
     </div>
 

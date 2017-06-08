@@ -38,17 +38,17 @@
             @Html.DisplayFor(modelItem => item.Cena_calkowita)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status_Status_ID)
+            @Html.DisplayFor(modelItem => item.Status.Nazwa)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Wesele_Wesele_ID)
+            @Html.DisplayFor(modelItem => item.Wesele.Nazwa)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Klient_Osoba_Osoba_ID)
+            @Html.DisplayFor(modelItem => item.Klient.Nazwisko)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Umowa_ID1 }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Umowa_ID1 }) |
+            @Html.ActionLink("Wylicz cenę", "Details", new { id=item.Umowa_ID1 }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Umowa_ID1 })
         </td>
     </tr>

@@ -39,7 +39,7 @@ namespace MasProjekt.Controllers
         public ActionResult Create()
         {
             ViewBag.Lokalizacja_Lokalizacja_ID = new SelectList(db.Lokalizacjas, "Lokalizacja_ID", "Nazwa");
-            ViewBag.Konsultant_Osoba_Osoba_ID = new SelectList(db.Osobas, "Osoba_ID", "Nazwisko");
+            ViewBag.Konsultant_Osoba_Osoba_ID = new SelectList(db.Konsultants, "Osoba_ID", "Nazwisko");
             ViewBag.Szablon_uroczystości_Szablon_uroczystości_ID = new SelectList(db.Szablon_uroczystości, "Szablon_uroczystości_ID", "Nazwa");
 
             return View();

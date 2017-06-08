@@ -44,13 +44,13 @@
             @Html.DisplayFor(modelItem => item.Data_wesela)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Konsultant_Osoba_Osoba_ID)
+            @Html.DisplayFor(modelItem => item.Konsultant.Nazwisko)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Szablon_uroczystości_Szablon_uroczystości_ID)
+            @Html.DisplayFor(modelItem => item.Szablon_uroczystości.Nazwa)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Lokalizacja_Lokalizacja_ID)
+            @Html.DisplayFor(modelItem => item.Lokalizacja.Nazwa)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Wesele_ID }) |

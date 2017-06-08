@@ -11,13 +11,21 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Umowa
     {
+        [DisplayName("Data podpisania")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public System.DateTime Data_podpisania { get; set; }
+        [DisplayName("Cena")]
         public decimal Cena_calkowita { get; set; }
+        [DisplayName("Status")]
         public decimal Status_Status_ID { get; set; }
+        [DisplayName("Wesele")]
         public decimal Wesele_Wesele_ID { get; set; }
+        [DisplayName("Klient")]
         public decimal Klient_Osoba_Osoba_ID { get; set; }
         public int Umowa_ID1 { get; set; }
     

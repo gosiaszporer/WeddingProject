@@ -11,7 +11,9 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Wesele
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +23,17 @@ namespace MasProjekt
         }
     
         public string Nazwa { get; set; }
+        [DisplayName("Liczba gości")]
         public int Ilosc_gosci { get; set; }
+        [DisplayName("Data wesela")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public System.DateTime Data_wesela { get; set; }
         public decimal Wesele_ID { get; set; }
+        [DisplayName("Konsultant")]
         public decimal Konsultant_Osoba_Osoba_ID { get; set; }
+        [DisplayName("Szablon")]
         public decimal Szablon_uroczystości_Szablon_uroczystości_ID { get; set; }
+        [DisplayName("Lokalizacja")]
         public decimal Lokalizacja_Lokalizacja_ID { get; set; }
     
         public virtual Konsultant Konsultant { get; set; }
