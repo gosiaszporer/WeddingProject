@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Szablony uroczystości</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Stwórz własny", "Create")
 </p>
 <table class="table">
     <tr>
@@ -18,13 +18,13 @@
             @Html.DisplayNameFor(model => model.Cena)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Oferta_catering.Nazwa)
+            @Html.DisplayNameFor(model => model.Oferta_catering_Oferta_catering_ID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Oferta_cukiernik.Nazwa)
+            @Html.DisplayNameFor(model => model.Oferta_cukiernik.Oferta_cukiernik_Oferta_cukiernik_ID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Oferta_kwiaciarnia.Nazwa)
+            @Html.DisplayNameFor(model => model.Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID)
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Oferta_kwiaciarnia.Nazwa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Szablon_uroczystości_ID }) |
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Szablon_uroczystości_ID }) |
             @Html.ActionLink("Wylicz cenę", "Details", new { id=item.Szablon_uroczystości_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Szablon_uroczystości_ID })
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Szablon_uroczystości_ID })
         </td>
     </tr>
 }

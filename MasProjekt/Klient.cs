@@ -11,7 +11,8 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Klient : Osoba
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace MasProjekt
         {
             this.Umowas = new HashSet<Umowa>();
         }
-    
+
+        [DisplayName("Numer telefonu")]
         public int Nr_telefonu { get; set; }
         public string Adres { get; set; }
     

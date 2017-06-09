@@ -11,7 +11,8 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Oferta_catering
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +23,12 @@ namespace MasProjekt
     
         public string Nazwa { get; set; }
         public string Opis { get; set; }
+        [DisplayName("Cena za osobę")]
         public decimal Cena { get; set; }
+        [DisplayName("Liczba dań")]
         public int Ilosc_dan { get; set; }
         public decimal Oferta_catering_ID { get; set; }
+        [DisplayName("Podwykonawca")]
         public decimal Podwykonawca_Podwykonawca_ID { get; set; }
     
         public virtual Podwykonawca Podwykonawca { get; set; }

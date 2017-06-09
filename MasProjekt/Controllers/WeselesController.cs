@@ -65,6 +65,9 @@ namespace MasProjekt.Controllers
         // GET: Weseles/Edit/5
         public ActionResult Edit(decimal id)
         {
+            ViewBag.Lokalizacja_Lokalizacja_ID = new SelectList(db.Lokalizacjas, "Lokalizacja_ID", "Nazwa");
+            ViewBag.Konsultant_Osoba_Osoba_ID = new SelectList(db.Konsultants, "Osoba_ID", "Nazwisko");
+            ViewBag.Szablon_uroczystości_Szablon_uroczystości_ID = new SelectList(db.Szablon_uroczystości, "Szablon_uroczystości_ID", "Nazwa");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -90,6 +93,9 @@ namespace MasProjekt.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Lokalizacja_Lokalizacja_ID = new SelectList(db.Lokalizacjas, "Lokalizacja_ID", "Nazwa");
+            ViewBag.Konsultant_Osoba_Osoba_ID = new SelectList(db.Konsultants, "Osoba_ID", "Nazwisko");
+            ViewBag.Szablon_uroczystości_Szablon_uroczystości_ID = new SelectList(db.Szablon_uroczystości, "Szablon_uroczystości_ID", "Nazwa");
             return View(wesele);
         }
 

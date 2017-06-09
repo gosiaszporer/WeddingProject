@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
-    <h4>Wesele</h4>
+  
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Konsultant_Osoba_Osoba_ID)
+            @Html.DisplayFor(model => model.Konsultant.Nazwisko)
         </dd>
 
         <dt>
@@ -47,7 +47,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Szablon_uroczystości_Szablon_uroczystości_ID)
+            @Html.DisplayFor(model => model.Szablon_uroczystości.Nazwa)
         </dd>
 
         <dt>
@@ -55,12 +55,12 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Lokalizacja_Lokalizacja_ID)
+            @Html.DisplayFor(model => model.Lokalizacja.Nazwa)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Wesele_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Wesele_ID }) |
+    @Html.ActionLink("Wróć do listy", "Index")
 </p>

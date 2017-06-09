@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Oferta cateringu</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nową", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Ilosc_dan)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Podwykonawca.Nazwa)
+            @Html.DisplayNameFor(model => model.Podwykonawca_Podwykonawca_ID)
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Podwykonawca.Nazwa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Oferta_catering_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Oferta_catering_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Oferta_catering_ID })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Oferta_catering_ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Oferta_catering_ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Oferta_catering_ID })
         </td>
     </tr>
 }

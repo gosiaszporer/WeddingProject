@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Oferta cukierni</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nową", "Create")
 </p>
 <table class="table">
     <tr>
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Cena)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Podwykonawca.Nazwa)
+            @Html.DisplayNameFor(model => model.Podwykonawca_Podwykonawca_ID)
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Podwykonawca.Nazwa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Oferta_cukiernik_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Oferta_cukiernik_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Oferta_cukiernik_ID })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Oferta_cukiernik_ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Oferta_cukiernik_ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Oferta_cukiernik_ID })
         </td>
     </tr>
 }

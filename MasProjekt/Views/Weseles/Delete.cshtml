@@ -4,11 +4,10 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Usuń</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Czy napewno chcesz usunąć to wesele?</h3>
 <div>
-    <h4>Wesele</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Konsultant_Osoba_Osoba_ID)
+            @Html.DisplayFor(model => model.Konsultant.Nazwisko)
         </dd>
 
         <dt>
@@ -48,7 +47,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Szablon_uroczystości_Szablon_uroczystości_ID)
+            @Html.DisplayFor(model => model.Szablon_uroczystości.Nazwa)
         </dd>
 
         <dt>
@@ -56,7 +55,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Lokalizacja_Lokalizacja_ID)
+            @Html.DisplayFor(model => model.Lokalizacja.Nazwa)
         </dd>
 
     </dl>
@@ -65,8 +64,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
         </div>
     }
 </div>

@@ -85,6 +85,9 @@ namespace MasProjekt.Controllers
         // GET: Umowas/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.Status_Status_ID = new SelectList(db.Status, "Status_ID", "Nazwa");
+            ViewBag.Wesele_Wesele_ID = new SelectList(db.Weseles, "Wesele_ID", "Nazwa");
+            ViewBag.Klient_Osoba_Osoba_ID = new SelectList(db.Klients, "Osoba_ID", "Nazwisko");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +113,9 @@ namespace MasProjekt.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Status_Status_ID = new SelectList(db.Status, "Status_ID", "Nazwa");
+            ViewBag.Wesele_Wesele_ID = new SelectList(db.Weseles, "Wesele_ID", "Nazwa");
+            ViewBag.Klient_Osoba_Osoba_ID = new SelectList(db.Klients, "Osoba_ID", "Nazwisko");
             return View(umowa);
         }
 

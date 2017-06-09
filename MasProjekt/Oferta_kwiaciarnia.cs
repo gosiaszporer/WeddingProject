@@ -11,7 +11,8 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Oferta_kwiaciarnia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,12 @@ namespace MasProjekt
         }
     
         public string Nazwa { get; set; }
+        [DisplayName("Dominujący kwiat")]
         public string Dominujacy_kwiat { get; set; }
+        [DisplayName("Cena za osobę")]
         public decimal Cena { get; set; }
         public decimal Oferta_kwiaciarnia_ID { get; set; }
+        [DisplayName("Podwykonawca")]
         public decimal Podwykonawca_Podwykonawca_ID { get; set; }
     
         public virtual Podwykonawca Podwykonawca { get; set; }

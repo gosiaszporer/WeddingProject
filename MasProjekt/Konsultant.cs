@@ -11,7 +11,9 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Konsultant : Osoba
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +21,9 @@ namespace MasProjekt
         {
             this.Weseles = new HashSet<Wesele>();
         }
-    
+
+        [DisplayName("Data zatrudnienia")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Data_zatrudnienia { get; set; }
         public int Prowizja { get; set; }
     

@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edytuj</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Umowa</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Umowa_ID1)
@@ -36,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Status_Status_ID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Status_Status_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Status_Status_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Status_Status_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Wesele_Wesele_ID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Wesele_Wesele_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Wesele_Wesele_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Wesele_Wesele_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,23 +51,38 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Klient_Osoba_Osoba_ID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Klient_Osoba_Osoba_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Klient_Osoba_Osoba_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Klient_Osoba_Osoba_ID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Zapisz" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Wróć do listy", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+
+    <script type="text/javascript">
+
+     $(document).ready(function () {
+         $('input[type=datetime]').datepicker({
+             dateFormat: "yy-mm-dd",
+             changeMonth: true,
+             changeYear: true,
+             yearRange: "-60:+0"
+         });
+
+     });
+    </script>
 }

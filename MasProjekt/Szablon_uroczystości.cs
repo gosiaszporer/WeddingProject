@@ -11,7 +11,8 @@ namespace MasProjekt
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Szablon_uroczystości
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,14 @@ namespace MasProjekt
         }
     
         public string Nazwa { get; set; }
+        [DisplayName("Cena za jednego gościa")]
         public decimal Cena { get; set; }
         public decimal Szablon_uroczystości_ID { get; set; }
+        [DisplayName("Catering")]
         public decimal Oferta_catering_Oferta_catering_ID { get; set; }
+        [DisplayName("Cukiernia")]
         public decimal Oferta_cukiernik_Oferta_cukiernik_ID { get; set; }
+        [DisplayName("Kwiaciarnia")]
         public decimal Oferta_kwiaciarnia_Oferta_kwiaciarnia_ID { get; set; }
     
         public virtual Oferta_catering Oferta_catering { get; set; }
